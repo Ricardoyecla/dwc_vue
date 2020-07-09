@@ -2,6 +2,7 @@ const app = new Vue ({
     el:'#t_vue',
     data:{
         nombre:'Unicaja',
+        nuevoJugador:'',
         propiedades:[
             {nombre:'Vildoza, Luca',puntos:4},
             {nombre:'Henry, Pierriá',punots:5},
@@ -21,5 +22,17 @@ const app = new Vue ({
             {nombre:'Christon, Semaj',puntos:2},
             {nombre:'Dragić, Zoran',puntos:3}
         ]
+    },
+    methods:{
+        anadirJugador () {
+            this.propiedades.push({
+                nombre:this.nuevoJugador,
+                puntos:0})
+            this.nuevoJugador='';
+            console.log('Pulsastge el botón')
+        },
+        anotar(){
+
+        }
     }
 })

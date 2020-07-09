@@ -7,6 +7,9 @@
 <body>
     <div id="t_vue">
         <h1>{{nombre}}</h1>
+        <input type="text" v-model='nuevoJugador' @keyup.enter='anadirJugador'>
+        <button v-on:click="anadirJugador">Añadir Forma I</button>
+        <button @click="anadirJugador">Añadir forma II</button>
         <ul>
             <li v-for="propiedad of propiedades">{{propiedad.nombre}} {{propiedad.puntos}}
                 <span v-if="propiedad.puntos===0"> No marco</span>
@@ -15,6 +18,6 @@
         </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./js/tercero.js"></script>
+    <script src="./js/cuarto.js"></script>
 </body>
 </html>

@@ -2,9 +2,10 @@ const app = new Vue ({
     el:'#t_vue',
     data:{
         nombre:'Unicaja',
+        nuevoJugador:'',
         propiedades:[
             {nombre:'Vildoza, Luca',puntos:4},
-            {nombre:'Henry, Pierriá',punots:5},
+            {nombre:'Henry, Pierriá',puntos:5},
             {nombre:'Granger, Jayson',puntos:6},
             {nombre:'García, Sergi',puntos:0},
             {nombre:'González, Miguel',puntos:1},
@@ -20,6 +21,32 @@ const app = new Vue ({
             {nombre:'Eric, Micheal',puntos:3},
             {nombre:'Christon, Semaj',puntos:2},
             {nombre:'Dragić, Zoran',puntos:3}
-        ]
+        ],
+        total:0
+    },
+    methods:{
+        anadirJugador () {
+            this.propiedades.push({
+                nombre:this.nuevoJugador,
+                puntos:0})
+            this.nuevoJugador='';
+            console.log('Pulsastge el botón')
+        },
+        anota:function(p){
+            p.puntos++;
+        },
+        desanotar(){
+            this.propiedades.puntos--;
+        }
+    },
+    computed:{
+        sumarPuntos(){
+            this.total=0;
+            for (puntosJugador of this.propiedades){
+                this.total=this.total+puntosJugador.puntos;
+                console.log(puntosJugador.puntos)
+            }
+            return this.total;
+        }
     }
 })

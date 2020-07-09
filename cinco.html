@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Segundo</title>
+</head>
+<body>
+    <div id="t_vue">
+        <h1>{{nombre}}</h1>
+        <input type="text" v-model='nuevoJugador' @keyup.enter='anadirJugador'>
+        <button v-on:click="anadirJugador">Añadir Forma I</button>
+        <button @click="anadirJugador">Añadir forma II</button>
+        <ul>
+            <li v-for="propiedad of propiedades">{{propiedad.nombre}}
+                <input type="number" v-model.number="propiedad.puntos">
+                <button v-on:click="anota(propiedad)">+</button>
+                <button v-on:click="propiedad.puntos--">-</button>
+                <span v-if="propiedad.puntos===0"> No marco</span>
+            </li>
+        </ul>
+        <h3>Puntos totales {{sumarPuntos}}</h3>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/cinco.js"></script>
+</body>
+</html>
